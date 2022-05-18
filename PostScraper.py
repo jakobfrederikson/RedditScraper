@@ -12,9 +12,9 @@ reddit_read_only = praw.Reddit(client_id=CLIENT_ID,
                                client_secret=CLIENT_SECRET,
                                user_agent=USER_AGENT)
 
-posts_dict = { "Subreddit": [], "Title": [] }
+posts_dict = { "Subreddit": [], "Title": []}
 
-for post in reddit_read_only.subreddit("Showerthoughts+AskReddit").top("all"):
+for post in reddit_read_only.subreddit("Showerthoughts+AskReddit").top(time_filter="year"):
     posts_dict["Subreddit"].append(post.subreddit)
     posts_dict["Title"].append(post.title)
 
